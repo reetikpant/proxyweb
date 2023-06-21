@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'expenses'%}">Proxies</a></li>
+                </ol>
+              </nav>
+        </div>
+    </div>  
+
+
+<div class="container">
+
+    {% include 'partials/messages.html' %}
+
+    {% if proxies.count %}
+
+    <table class="table table-stripped table-hover">
+        <thead>
+            <tr>
+                <th> IP </th>
+                <th> Port </th>
+                <th> Type </th>
+                <th> Username </th>
+                <th> Password </th>
+                <th> Price </th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proxy in proxies %}
+            <tr>
+                <td> {{proxy.ip}} </td>
+                <td> {{proxy.port}} </td>
+                <td> {{proxy.category}} </td>
+                <td> {{proxy.username}} </td>
+                <td> {{proxy.password}} </td>
+                <td> {{proxy.price}} </td>
+                <td> <a href="{% url 'buy' proxy.id %}" class="btn btn-sm btn-secondary">Buy</a> </td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    {% endif %}
+</div>  
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock content%}

@@ -1,0 +1,44 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+{% block content %}
+<link href="{% static 'css/auth.css'%}" rel="stylesheet">
+<main class="text-center form-signin w-100 m-auto">
+    <form action="{% url 'login'%}" method="post">
+        {% csrf_token %}
+
+        {% include 'partials/messages.html' %}
+        
+      <img class="mb-4" src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  
+      <div class="form-floating">
+        <input type="text"
+        name="username"
+        placeholder="username"
+        id="usernameField"
+        value="{{fieldValues.username}}" class="form-control">
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating">
+        <input class="form-control" type="password"
+        name="password"
+        placeholder="Password"
+        id="passwordField">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <div class="text-end mt-2">
+        <a class="" href="{% url 'register'%}">Register</a>
+      </div>
+
+    </form>
+  </main>
+
+
+
+<script src="{% static 'js/register.js' %}"> </script>
+
+{% endblock content %}
+
