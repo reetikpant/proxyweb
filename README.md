@@ -1,5 +1,5 @@
 # Proxy web
-A only marketplace for users to buy and sell proxies online
+A online marketplace for users to buy and sell proxies online
 
 to run django, go to folder and in cli - 
 
